@@ -37,7 +37,7 @@ var element;
 function assignId(element2) {
 	element = document.getElementsByName("LOAD");
 	element.id=element2;
-	alert("buscando " + element.id + "...");
+	//alert("buscando " + element.id + "...");
 	document.getElementById("full-name").value=element.id;//assignId, then write to innerHTML of an invisible submit button
 	document.forms["OPEN"].submit();//after submiting, use get to extract the info INSIDE the input field -> php
 									//which was put there by document.getElementById("full-name").value

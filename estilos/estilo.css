@@ -4,9 +4,6 @@
 	padding:0;
 }
 header{
-	padding-top: .5em;
-	padding-bottom: .6em;
-	width:100%;
 	background-color: #2C001E;
 	border-bottom: 2px solid #DD4818;
 	
@@ -14,7 +11,6 @@ header{
 i{
 	text-align: center;
 	color: #fff !important;
-	margin-left: 20%;
 	margin-top: 30px;
 }
 nav{
@@ -23,7 +19,7 @@ nav{
 	background-color: transparent;
 }
 .add{
-	margin-top: 0% !important;
+	margin-top: 2% !important;
 }
 .a-izq{
 	display: block;
@@ -56,20 +52,23 @@ nav{
 	width: 100%;
 }
 .barra-explorador{
-	width: 20.3%;
+	width: 20%;
 	float: left;
 	display: inline;
 	margin-left: 0px;
 	background-color: transparent;
 	border-right: 2px solid #DD4818;
 	background: #2C001E;
-	height: 618px;
+	height: 94%;
 }
 .btn-docs{
 	transition: opacity 0.2s;
 }
-.btn-docs:hover{
-	opacity: 0.70;
+.btn-docs, .search{
+	transition: opacity 0.4s;
+}
+.btn-docs:hover, .search:hover{
+	opacity: 0.40;
 }
 .btn-docs:active{
 	opacity: 1;
@@ -100,6 +99,9 @@ nav{
 	color: #F7F6F5;
 	border-bottom: 1px solid #7b7b7a;
 }
+.flie-oper-list{
+	position: absolute;
+}
 .file-oper, .fa-2x{
 	color: #F7F6F5;
 	margin-top: 10%;
@@ -111,10 +113,8 @@ nav{
 	font-size: 34px !important;
 }
 .folder-explorador{
-	width: 75%;
-	margin-left: 3em;
 	overflow: scroll;
-	height: 99%;
+	height: 97%;
 }
 .icon{
 	color: #2C001E;
@@ -142,13 +142,12 @@ nav{
 	
 }
 .menu-explorador{
-	width: 25%;
 	float: left;
 	background-color: #411934;
 }
 .nav-barra-izq{
 	width:100%;
-	height: 90%;
+	height: 100%;
 	background-color: transparent;
 }
 .nav-barra-der{
@@ -175,11 +174,20 @@ nav{
 .search{
 	color: #DD4818;
 	font-size: 40px;
+	margin-left: 0.21em;
 }
 .ul-default{
 	display: block;
 	float: left;
-	height: 110%;
+	height: 100%;
 	width: 100%;
 	background-color: transparent;
+}
+
+@media only screen
+and(min-device-width:10px)
+and(max-device-width:767px){
+    .barra-explorador{
+		width: 0%;
+    }
 }

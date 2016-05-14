@@ -1,6 +1,13 @@
 /* comienzo de font-face para botones de seleccion de lenguaje de programacion .lang-select */
 
 /* latin-ext */
+/*
+change height of explorer tab when zoomed out
+make file-op icons stay same size
+fix body height responsive
+try to make explorer visible oonly when called on smaller screens
+make editor bigger on smaller screens
+*/
 @font-face {
   font-family: 'Lato';
   font-style: normal;
@@ -19,10 +26,11 @@
 /* fin de font-face para botones de seleccion de lenguaje de programacion .lang-select */
 body {
     background: #2C001E;
-    overflow: hidden;
+    overflow: scroll;
 }
 form{
     display: inherit;
+    position: relative;
 }
 h1{
     display: block;
@@ -33,18 +41,35 @@ h1{
 li{
     list-style: none;
 }
+.content{
+    background: #272727;
+    width: 100%; 
+    margin: auto;
+    display: block;  
+    overflow: unset;
+    position: relative;
+}
 #editor {
     border: 0.4em solid #444;
     box-shadow: 2px 2px 5px rgba(0,0,0,0.7);
     display: block;
-    height:484px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 10.01em;
+    bottom: 3.8em;
 }
 .editor-container{
-    float: right;
-    width: 79.54%;
     display: inline;
+    position: absolute;
+    right: 0%;
+    left: 20%;
+    height: 60vh;
+}
+.editor-container > .container{
     position: relative;
-    z-index: 3;
+    height: 100%;
+    overflow: scroll;
 }
 .inner-width{
     width: 100%;
@@ -91,7 +116,12 @@ li{
     width: 100% !important;
 }
 .no-display{
-    display: none !important;
+    display: none;
+}
+.php-file-tree {
+    font-family: 'Lato';
+    font-size: 14px;
+    letter-spacing: 1px;    line-height: 1.5;
 }
 .switch-container>li{
     float: none !important;
@@ -99,24 +129,41 @@ li{
     width: 12% !important;/*100% / 7 para que quepan a lo largo    display: none;
 }*/
 }
-.php-file-tree {
-    font-family: 'Lato';
-    font-size: 14px;
-    letter-spacing: 1px;    line-height: 1.5;
-}
 .switch-container{
     height: 7.5em;
     margin: auto;
     display: block;
     background: #272727;
-    border-top-left-radius: 6px;
     text-align: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
 }
 #submit{
     display: block;
     margin-top: 1.2em;
     margin-left: auto;
     margin-right: auto;
+}
+.textboxclass{
+    background: rgba(65, 25, 52, 0.5);
+    border: none;
+    color: #bbb;
+    display: block;
+    height: 0px;
+    opacity: 0;
+    outline: transparent !important;
+    text-align: center;
+    transition: height 0.5s, opacity 0.5s, box-shadow 0.2s;
+    width: 100%;
+}
+.checkboxclass:checked ~ .textboxclass{
+    height: 40px;
+    opacity: 1;
+}
+.textboxclass:focus{
+    box-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
 #js{
     background: #333;
@@ -140,21 +187,45 @@ li{
     background: #118666;
 }
 /*estilos de scroll, solo visibles en safari y chrome*/
-::-webkit-scrollbar
-{
-  width: 8px;  /* for vertical scrollbars */
-  height: 12px; /* for horizontal scrollbars */
+::-webkit-scrollbar{
+  width: 6px;  /* for vertical scrollbars */
+  height: 6px; /* for horizontal scrollbars */
+}
+::-webkit-scrollbar-track{
+  background: #411934;
 }
 
-::-webkit-scrollbar-track
-{
-  background: transparent;
-}
-
-::-webkit-scrollbar-thumb
-{
-  background: rgba(0, 0, 0, 0.5);
+::-webkit-scrollbar-thumb{
+  background: #1b000d;
 }
 ::-webkit-scrollbar-corner{
     background: #2C001E;
+}
+::-webkit-input-placeholder {
+   font-style: italic;
+}
+:-moz-placeholder {
+   font-style: italic;  
+}
+::-moz-placeholder {
+   font-style: italic;  
+}
+:-ms-input-placeholder {  
+   font-style: italic; 
+}
+/*media queries*/
+@media only screen 
+and (min-device-width:767px){
+    body{
+        overflow: hidden;
+    }
+    .editor-container{
+        height: 100vh;
+    }
+}
+
+@media only screen
+and(min-device-width:10px)
+and(max-device-width:768px){
+
 }
