@@ -24,6 +24,9 @@ make editor bigger on smaller screens
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
 }
 /* fin de font-face para botones de seleccion de lenguaje de programacion .lang-select */
+body{
+    font-family: 'Lato';
+}
 body {
     background: #2C001E;
     overflow: scroll;
@@ -40,6 +43,9 @@ h1{
 }
 li{
     list-style: none;
+}
+.btn-docs i:active{
+    color: #DD4818 !important;
 }
 .content{
     background: #272727;
@@ -70,6 +76,48 @@ li{
     position: relative;
     height: 100%;
     overflow: scroll;
+}
+.file-oper, .search{
+    transition: opacity 0.4s;
+}
+.file-oper:hover, .search:hover{
+    opacity: 0.40;
+}
+.file-oper:active{
+    opacity: 1;
+}
+.flie-oper-list{
+    position: absolute;
+}
+.file-oper, .fa-2x{
+    color: #F7F6F5;
+    margin-top: 10%;
+    position: relative;
+}
+.file-oper{
+    font-size: 39px !important;
+}
+.fa-2x{
+    font-size: 34px !important;
+}
+.hidden-tip-1, .hidden-tip-2, .hidden-tip-3{
+    position: absolute;
+    left: 50%;
+    top: 12px;
+    opacity: 0;
+    color: #fff;
+    transition: left 0.4s, opacity 0.4s;
+    cursor: pointer;
+    }
+    .docs-open:hover .hidden-tip-1, .docs-create:hover .hidden-tip-2, .docs-save:hover .hidden-tip-3{
+        left: 17%;
+        opacity: 1;
+        transition: left 1.2s, opacity 1.8s;
+    }
+    .docs-open:active .hidden-tip-1, .docs-create:active .hidden-tip-2, .docs-save:active .hidden-tip-3{
+        color: #DD4818;
+        left: 17%;
+        opacity: 1;
 }
 .inner-width{
     width: 100%;
@@ -119,7 +167,6 @@ li{
     display: none;
 }
 .php-file-tree {
-    font-family: 'Lato';
     font-size: 14px;
     letter-spacing: 1px;    line-height: 1.5;
 }

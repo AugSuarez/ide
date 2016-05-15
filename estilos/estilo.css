@@ -61,22 +61,6 @@ nav{
 	background: #2C001E;
 	height: 94%;
 }
-.btn-docs{
-	transition: opacity 0.2s;
-}
-.btn-docs, .search{
-	transition: opacity 0.4s;
-}
-.btn-docs:hover, .search:hover{
-	opacity: 0.40;
-}
-.btn-docs:active{
-	opacity: 1;
-}
-
-.btn-docs i:active{
-	color: #DD4818 !important;
-}
 .exp{
 	font-family:'Segoe UI';
 	font-weight: bold;
@@ -98,19 +82,6 @@ nav{
 	margin-top: 6px;
 	color: #F7F6F5;
 	border-bottom: 1px solid #7b7b7a;
-}
-.flie-oper-list{
-	position: absolute;
-}
-.file-oper, .fa-2x{
-	color: #F7F6F5;
-	margin-top: 10%;
-}
-.file-oper{
-	font-size: 39px !important;
-}
-.fa-2x{
-	font-size: 34px !important;
 }
 .folder-explorador{
 	overflow: scroll;

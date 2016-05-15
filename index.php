@@ -1,7 +1,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-	<title>menu</title>
+	<title id="page-title">IDE</title>
 	<link rel="stylesheet" href="estilos/estilo.css">
 	<link rel="stylesheet" href="estilos/font-awesome.min.css">
 	<link rel="stylesheet" href="icon-font-google/material-icons.css">
@@ -24,32 +24,32 @@ include_once("process.php");
 	<nav>
 		<form method="get" name="formName">
 			<ul class="ul-default file-oper-list">
+
 				<li class="btn-docs"><a href="index.php"><i class="icons8-left-round round file-oper"></i></a></li>
 
-				<input type="submit" name="SHOW" id="SHOW" class="btn-docs-input no-display">
-					<li class="btn-docs">
-						<a href="#">
-							<label for="SHOW" type="checkbox">
-								<i class="fa fa-folder-open fa-2x file-oper"></i>
-							</label>
-						</a>
-					</li>
+				<li class="btn-docs docs-open">
+				<p class="hidden-tip-1">Abrir Ventana Nueva Con Editor</p>
+					<a href="index.php" target="_blank">
+						<i class="fa fa-folder-open fa-2x file-oper"></i>
+					</a>
+				</li>
 
-					<li class="btn-docs">
-						<a href="#" onClick="openWin('create.php', 'creardoc')">
-								<i class="material-icons  add file-oper">add_circle</i>
-						</a>
-					</li>
+				<li class="btn-docs docs-create">
+				<p class="hidden-tip-2">Crear Archivo Nuevo</p>
+					<a href="#" onClick="openWin('create.php', 'creardoc')">
+							<i class="material-icons  add file-oper">add_circle</i>
+					</a>
+				</li>
 
 				<input type="submit" id="SAVE" name="SAVE" class="btn-docs-input no-display">
-					<li class="btn-docs">
-						<a href="#">
-							<label for="SAVE" type="checkbox">
-								<i class="fa fa-floppy-o fa-2x file-oper"></i>
-							</label>
-						</a>
-					</li>
-				
+				<li class="btn-docs docs-save">
+				<p class="hidden-tip-3">Guardar Archivo</p>
+					<a href="#">
+						<label for="SAVE" type="checkbox">
+							<i class="fa fa-floppy-o fa-2x file-oper"></i>
+						</label>
+					</a>
+				</li>
 
 			</ul>
 		</form>
@@ -212,7 +212,6 @@ include_once("process.php");
 		</div>
 <script src="src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
 <script src="lib/js/editor.js" type="text/javascript"></script>
-
 	<script type="text/javascript">
         var editor = ace.edit("editor");
         editor.setTheme('ace/theme/idle_fingers');
