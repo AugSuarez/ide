@@ -1,0 +1,8 @@
+<div id="default-content">
+function foo(items) {
+var i;
+for (i = 0; i < items.length; i++) {
+    alert("Texto Predeterminado " + items[i]);
+    }
+}
+</div>

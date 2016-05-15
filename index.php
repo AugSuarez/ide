@@ -15,59 +15,10 @@
 <?php 
 include("phpFileTree-1.0\phpFileTree\php_file_tree_dir.php");
 include("phpFileTree-1.0\phpFileTree\php_file_tree.php");
-
-global $full_name;
-
-    function showContents(){
-        echo '<script> alert("contenido mostrado!"); </script>';
-    }
-
-    function saveFile(){
-        echo '<script> saveAlert(); </script>';
-    }
-
-    if (!empty($_GET["SAVE"])) {
-    	saveFile();
-    }
-
-    if (isset($_GET['SHOW'])) {
-    	showContents();
-    	echo '<script> window.location.href="index.php" </script>';
-    }
-
-    function getFullPath()
-    {
-    	$full_name = realpath($GLOBALS['full_name']);
-        return $full_name;
-    }
-
-	function loadFile(){
-		$input_file=getFullPath();
-    	if(is_file($input_file))
-    		$output_file=file_get_contents($input_file, "r");
-    	else
-    		echo "/*ARCHIVO NO VALIDO: */";
-    	if (file_exists($input_file)){
-    		echo "/*ARCHIVO UBICADO!\n" . "ARCHIVO ABIERTO CON EXITO!\n*/" ;
-    		return $output_file;
-    	}
-    	else
-    		echo "el archivo deseado no existe";
-
-		if (!file_get_contents($input_file)) {
-	    	echo "//ARCHIVO NO SE PUDO ABRIR O TIENE CONTENIDO NULO. Se cargo el contenido predeterminado";
-
-			return '<div id="default-content">' .'function foo(items) {
-<!--                            -->var i;
-<!--                            -->for (i = 0; i < items.length; i++) {
-<!--                            -->    alert("Ace Rocks " + items[i]);
-<!--                        -->    }
-<!--                        -->}' . '</div>';
-		}
-	}
-	    		
+include_once("process.php"); 		
 ?>
 </head>
+
 <div class="content">
 <header>
 	<nav>
@@ -83,16 +34,22 @@ global $full_name;
 							</label>
 						</a>
 					</li>
-				<input type="submit" id="CREATE" name="CREATE" class="btn-docs-input no-display">
+
+					<li class="btn-docs">
+						<a href="#" onClick="openWin('create.php', 'creardoc')">
+								<i class="material-icons  add file-oper">add_circle</i>
+						</a>
+					</li>
+
+				<input type="submit" id="SAVE" name="SAVE" class="btn-docs-input no-display">
 					<li class="btn-docs">
 						<a href="#">
-							<label for="CREATE" type="checkbox">
-								<i class="material-icons  add file-oper">add_circle</i>
+							<label for="SAVE" type="checkbox">
+								<i class="fa fa-floppy-o fa-2x file-oper"></i>
 							</label>
 						</a>
 					</li>
 				
-				<li class="btn-docs"><a href="#" onClick="openWin('create.php', 'creardoc')"><i class="fa fa-floppy-o fa-2x file-oper"></i></a></li>
 
 			</ul>
 		</form>
@@ -102,8 +59,6 @@ global $full_name;
 			<div class="menu-explorador">
 				<nav class="nav-barra-izq">
 					<ul class="ul-default barra-busqueda">
-						
-						
 							<li class="li-izq">
 								<a class="a-izq" href="#">
 									<label for="checkboxid" class="search-label">
@@ -113,7 +68,6 @@ global $full_name;
 									</label>
 								</a>
 							</li>
-						
 					</ul>
 				</nav>
 			</div>
@@ -123,12 +77,12 @@ global $full_name;
 				</div>
 
 			<form class="lista-dir" action="" method="get" name="forma-dir">
-			<input type="checkbox" class="checkboxclass no-display" name"checkboxname" id="checkboxid" for="OPEN"/>
-			<input id="full-name" class="textboxclass search-display"  type="text" name="full-name" placeholder="  abrir por direccion completa"></input>
+			<input type="checkbox" class="checkboxclass no-display" name="checkboxname" id="checkboxid" for="OPEN"/>
+			<input id="full-name" name="full-name" class="textboxclass search-display"  type="text" placeholder="  abrir por direccion completa"></input>
 			<input  class="no-display search-display" id="search-submit" type="submit" name="OPEN"></input>
 				<ul class="lista-ul">
 				<?php 
-				echo php_file_tree('C:\xampp\htdocs\ide','C:\xampp\htdocs\ide\index.php', $extensions = array()); 
+					echo php_file_tree('C:\xampp\htdocs\ide','C:\xampp\htdocs\ide\index.php', $extensions = array()); 
 				?>
 				</ul> 			
 			</form>		
@@ -209,11 +163,11 @@ global $full_name;
 		                    </li>
 
 		                    <li class="switch-li">
-		                    <input type="checkbox" name="jar" onclick="
+		                    <input type="checkbox" name="java" onclick="
 		                    	var editor = ace.edit('editor');editor.setTheme('ace/theme/merbivore_soft');
 								editor.session.setMode('ace/mode/java');
-								" class="lang-select" id="jar">
-		                        <label for="jar" class="lang-btn" id="jar" style="font-family: Lato;">
+								" class="lang-select" id="java">
+		                        <label for="java" class="lang-btn" id="java" style="font-family: Lato;">
 		                            <p>
 		                                Java
 		                            </p>
@@ -257,7 +211,7 @@ global $full_name;
 			</nav>	
 		</div>
 <script src="src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
-<script src="editor.js" type="text/javascript"></script>
+<script src="lib/js/editor.js" type="text/javascript"></script>
 
 	<script type="text/javascript">
         var editor = ace.edit("editor");

@@ -12,7 +12,7 @@ $GLOBALS['full_address']="";
 	
 	== AUTHOR ==
 	
-		Cory S.N. LaViska
+		Cory S.N. LaViska lOAD
 		http://abeautifulsite.net/
 		
 	== DOCUMENTATION ==

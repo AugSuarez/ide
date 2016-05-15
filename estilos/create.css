@@ -18,7 +18,7 @@
 body{
     background: #272727;
 }
-form{
+.check-form{
 	margin: auto;
 	text-align: center;
 	padding: 1.2em 5em .5em 5em ;
@@ -44,7 +44,4 @@ li input{
 	width: 40%;
 	font-family: lato;
 	margin:auto;
-}
-#create{
-
 }
