@@ -65,16 +65,17 @@ include_once("process.php");
 							<li class="li-izq">
 								<a class="a-izq" href="#">
 									<label for="checkboxid" class="search-label">
-										<i class="material-icons search">
+										<i class="material-icons file-search">
 											search
 										</i>
 									</label>
 								</a>
 							</li>
-							<li class="li-borrar">
+							<li class="li-borrar docs-delete">
 								<a class="a-izq" href="#">
-									<i class="material-icons search">
-										search
+								<p class="hidden-tip-4">Borrar Archivo En Uso??</p>
+									<i class="material-icons file-delete">
+										delete
 									</i>
 								</a>
 							</li>

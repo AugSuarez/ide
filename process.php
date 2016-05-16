@@ -21,7 +21,7 @@
     }
     function createFile($nombre) {//called from create.php
         $newdoctext = file_get_contents('lib/txt/newdoctext.txt', "r");
-        file_put_contents( $nombre, $newdoctext);
+        file_put_contents( $nombre, $nombre . "\n" . $newdoctext);
         echo '<script>  alert("Archivo: '. $nombre . ' creado")  </script>' .
         '<script> window.opener.location.reload() </script>' .
         '<script>  closeWin();  </script>';

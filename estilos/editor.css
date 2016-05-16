@@ -77,10 +77,17 @@ li{
     height: 100%;
     overflow: scroll;
 }
-.file-oper, .search{
+.file-delete{
+    color: #c81717;
+}
+.file-delete:hover{
+    color: #b70606;
+    opacity: 0.8 !important;
+}
+.file-oper, .file-search, .file-delete{
     transition: opacity 0.4s;
 }
-.file-oper:hover, .search:hover{
+.file-oper:hover, .file-search:hover, .file-delete:hover{
     opacity: 0.40;
 }
 .file-oper:active{
@@ -97,10 +104,14 @@ li{
 .file-oper{
     font-size: 39px !important;
 }
+.file-search, .file-delete{
+    font-size: 40px;
+    margin-left: 0.21em;
+}
 .fa-2x{
     font-size: 34px !important;
 }
-.hidden-tip-1, .hidden-tip-2, .hidden-tip-3{
+.hidden-tip-1, .hidden-tip-2, .hidden-tip-3, .hidden-tip-4{
     position: absolute;
     left: 50%;
     top: 12px;
@@ -109,15 +120,28 @@ li{
     transition: left 1s, opacity 0.4s;
     cursor: pointer;
     }
-    .docs-open:hover .hidden-tip-1, .docs-create:hover .hidden-tip-2, .docs-save:hover .hidden-tip-3{
-        left: 17%;
-        opacity: 1;
-        transition: left 0.3s, opacity 1.9s;
+    .hidden-tip-4{
+    top: 3.4em;
+    color: #fff;
+    font-size: 50px;
+    transition: left 1s, opacity 0.4s;
+    cursor: pointer;
+    z-index: 10;
+    padding: 1em;
+    border-radius: 0.5em;
+    background: rgba(80,20,20,0.5);
     }
-    .docs-open:active .hidden-tip-1, .docs-create:active .hidden-tip-2, .docs-save:active .hidden-tip-3{
-        color: #DD4818;
+    .docs-open:hover .hidden-tip-1, .docs-create:hover .hidden-tip-2, .docs-save:hover .hidden-tip-3, .docs-delete:hover .hidden-tip-4{
         left: 17%;
         opacity: 1;
+        transition: left 0.3s, opacity 1.4s;
+    }
+    .docs-open:active .hidden-tip-1, .docs-create:active .hidden-tip-2, .docs-save:active .hidden-tip-3, .docs-delete:active .hidden-tip-4{
+        color: #DD4818;
+        opacity: 1;
+    }
+    .docs-delete:hover .hidden-tip-4{
+        transition: left 0.3s, opacity 1s;
 }
 .inner-width{
     width: 100%;

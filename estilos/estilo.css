@@ -10,7 +10,7 @@ header{
 }
 i{
 	text-align: center;
-	color: #fff !important;
+	color: #fff;
 	margin-top: 30px;
 }
 nav{
@@ -148,11 +148,6 @@ nav{
 }
 .nav-list{
 	margin-bottom: 20px;
-}
-.search{
-	color: #DD4818;
-	font-size: 40px;
-	margin-left: 0.21em;
 }
 .ul-default{
 	display: block;
