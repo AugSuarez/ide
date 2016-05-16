@@ -10,7 +10,11 @@
     }
 
     function saveFile(){//called from index.php
-        echo '<script>  alert(document.getElementById("open-file-name").innerHTML)  </script>' ;
+        $contents=$_GET['contents-to-write'];
+        $nombreDocNuevo=$_GET['current-file'];
+        file_put_contents($nombreDocNuevo, $contents);
+        echo '<script>  alert("Archivo ' . $nombreDocNuevo . ' guardado")  </script>';   
+        echo '<script>  window.location.href  = "index.php?full-name='. $nombreDocNuevo . '&OPEN=Submit"  </script>';   
     }
     function checkAvailable(){
         

@@ -22,7 +22,7 @@ include_once("process.php");
 <div class="content">
 <header>
 	<nav>
-		<form method="get" name="formName">
+		<form method="get" name="formName" onsubmit="return confirm('desea sobreescribir?')">
 			<ul class="ul-default file-oper-list">
 
 				<li class="btn-docs"><a href="index.php"><i class="icons8-left-round round file-oper"></i></a></li>
@@ -41,7 +41,8 @@ include_once("process.php");
 					</a>
 				</li>
 
-				<input type="submit" id="SAVE" name="SAVE" class="btn-docs-input no-display">
+				<input type="submit" id="SAVE" name="SAVE" class="btn-docs-input no-display" onclick="jscriptSaveFunction()">
+				<input type="text" id="current-file" name="current-file" class="no-display"></input>
 				<li class="btn-docs docs-save">
 				<p class="hidden-tip-3">Guardar Archivo</p>
 					<a href="#">
@@ -50,6 +51,8 @@ include_once("process.php");
 						</label>
 					</a>
 				</li>
+				<textarea type="text" name="contents-to-write" id="contents-to-write" class="no-display">
+				</textarea>
 
 			</ul>
 		</form>
@@ -83,7 +86,7 @@ include_once("process.php");
 					<a class="exp">EXPLORADOR</a>						
 				</div>
 
-			<form class="lista-dir" action="" method="get" name="forma-dir">
+			<form class="lista-dir" action="" method="get" name="forma-dir" id="forma-dir">
 			<input type="checkbox" class="checkboxclass no-display" name="checkboxname" id="checkboxid" for="OPEN"/>
 			<input id="full-name" name="full-name" class="textboxclass search-display"  type="text" placeholder="  abrir por direccion completa"></input>
 			<input  class="no-display search-display" id="search-submit" type="submit" name="OPEN"></input>
@@ -205,8 +208,8 @@ include_once("process.php");
 	        }?></pre>
 	        <?php 
 	        if (loadFile()!=file_get_contents('lib/txt/defaulttext.txt', "r")) {
-	        	echo '<p id="open-file-name">' . $_GET['full-name'] .'</p>';
-	        	echo '<script> alert("Archivo \'' . $_GET['full-name'] . '\' abierto con exito") </script>';
+	        	echo '<p type="text" id="open-file-name" name="open-file-name">' . $_GET['full-name'] .'</p>';
+	        	//echo '<script> alert("Archivo \'' . $_GET['full-name'] . '\' abierto con exito") </script>';
 	        }
 	   			
 	   		 ?>
