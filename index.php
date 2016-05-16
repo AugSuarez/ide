@@ -68,6 +68,13 @@ include_once("process.php");
 									</label>
 								</a>
 							</li>
+							<li class="li-borrar">
+								<a class="a-izq" href="#">
+									<i class="material-icons search">
+										search
+									</i>
+								</a>
+							</li>
 					</ul>
 				</nav>
 			</div>
