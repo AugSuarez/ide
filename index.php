@@ -37,7 +37,7 @@ include_once("process.php");
 				<li class="btn-docs docs-create">
 				<p class="hidden-tip-2">Crear Archivo Nuevo</p>
 					<a href="#" onClick="openWin('create.php', 'creardoc')">
-							<i class="material-icons  add file-oper">add_circle</i>
+						<i class="material-icons  add file-oper">add_circle</i>
 					</a>
 				</li>
 
@@ -197,12 +197,19 @@ include_once("process.php");
 
 		                </ul>
 		            </form>
-	   
+
 	        <pre id="editor"><?php  
 	        if (!empty($_GET["OPEN"])) {
 				$full_name = $_GET['full-name'];
 	        	echo loadFile(); 
 	        }?></pre>
+	        <?php 
+	        if (loadFile()!=file_get_contents('lib/txt/defaulttext.txt', "r")) {
+	        	echo '<p id="open-file-name">' . $_GET['full-name'] .'</p>';
+	        	echo '<script> alert("Archivo \'' . $_GET['full-name'] . '\' abierto con exito") </script>';
+	        }
+	   			
+	   		 ?>
 			</div>
 		</div>
 </div>

@@ -10,7 +10,7 @@
     }
 
     function saveFile(){//called from index.php
-
+        echo '<script>  alert(document.getElementById("open-file-name").innerHTML)  </script>' ;
     }
     function checkAvailable(){
         
@@ -35,11 +35,9 @@
     		$output_file=file_get_contents($input_file, "r");
     	else
     		echo "/*ARCHIVO NO VALIDO: */";
-    	if (file_exists($input_file)){
-    		echo "/*ARCHIVO " . $input_file ." UBICADO Y ABIERTO CON EXITO!*/\n" ;
+    	if (!file_exists($input_file)){
+            echo "el archivo deseado no existe";
     	}
-    	else
-    		echo "el archivo deseado no existe";
 
 		if (!file_get_contents($input_file)){
 	    	echo "//ARCHIVO NO SE PUDO ABRIR! Se cargo el contenido predeterminado\n";
@@ -51,10 +49,6 @@
     if (isset($_GET['SHOW'])) {
         showContents();
         echo '<script> window.location.href="index.php" </script>';
-    }
-
-    if (!empty($_GET["SAVE"])) {//called from index.php
-        saveFile();
     }
     if (!empty($_GET["submit-check"])) {
         $nombreArchivo = $_GET["nombre-archivo"];
@@ -77,4 +71,7 @@
                 createFile($nombreDocNuevo);
             }
         }
+    }
+    if (!empty($_GET["SAVE"])) {//called from index.php
+        saveFile();
     }

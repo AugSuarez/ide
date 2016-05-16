@@ -106,13 +106,13 @@ li{
     top: 12px;
     opacity: 0;
     color: #fff;
-    transition: left 0.4s, opacity 0.4s;
+    transition: left 1s, opacity 0.4s;
     cursor: pointer;
     }
     .docs-open:hover .hidden-tip-1, .docs-create:hover .hidden-tip-2, .docs-save:hover .hidden-tip-3{
         left: 17%;
         opacity: 1;
-        transition: left 1.2s, opacity 1.8s;
+        transition: left 0.3s, opacity 1.9s;
     }
     .docs-open:active .hidden-tip-1, .docs-create:active .hidden-tip-2, .docs-save:active .hidden-tip-3{
         color: #DD4818;
@@ -165,6 +165,15 @@ li{
 }
 .no-display{
     display: none;
+}
+#open-file-name{
+    position: absolute;
+    z-index: 10;
+    background: #411934;
+    font-size: 15px;
+    border: 2px solid #fff;
+    color: #fff;
+    padding: 0.1em 0.6em;
 }
 .php-file-tree {
     font-size: 14px;
