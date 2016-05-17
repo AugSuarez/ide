@@ -99,7 +99,7 @@ include_once("process.php");
 			<input  class="no-display search-display" id="search-submit" type="submit" name="OPEN"></input>
 				<ul class="lista-ul">
 				<?php 
-					echo php_file_tree('C:\xampp\htdocs\ide','C:\xampp\htdocs\ide\index.php', $extensions = array()); 
+					echo php_file_tree(rtrim(realpath('index.php'), 'index.php'),"realpath('index.php')", $extensions = array()); 
 				?>
 				</ul> 			
 			</form>		
@@ -110,12 +110,15 @@ include_once("process.php");
 	<p id="content-display"></p>
 		<div class="editor-container">
 			<div class="container">
-		            <form name="langForm">
+		            <form name="langForm" class="lang-form">
+					<input type="checkbox" class="show-lang-class no-display">
+					<i class="material-icons lang-arrow" onclick="toggleSwitchView()">change_history</i>
 		                <ul class="switch-container">
-		                	<li class="switch-li">
+							<li class="switch-li">
 		                    <input type="checkbox" name="js" onclick="
 		                    	var editor = ace.edit('editor');editor.setTheme('ace/theme/idle_fingers');
 		                            editor.session.setMode('ace/mode/javascript');
+		                            toggleSwitchView();
 								" class="lang-select" id="js">
 		                        <label for="js" class="lang-btn" id="js" style="font-family: Lato;">
 		                            <p>
@@ -128,7 +131,8 @@ include_once("process.php");
 		                    <li class="switch-li">
 		                    <input type="checkbox" name="php" onclick="
 		                    	var editor = ace.edit('editor');editor.setTheme('ace/theme/terminal');
-								editor.session.setMode('ace/mode/php');
+									editor.session.setMode('ace/mode/php');
+		                            toggleSwitchView();
 								" class="lang-select" id="php">
 		                        <label for="php" class="lang-btn" id="php" style="font-family: Lato;">
 		                            <p>
@@ -141,9 +145,9 @@ include_once("process.php");
 		                    <li class="switch-li">
 		                    <input type="checkbox" name="html" onclick="
 		                    	var editor = ace.edit('editor');editor.setTheme('ace/theme/iplastic');
-		                        editor.session.setMode('ace/mode/html');
-								"
-		                             class="lang-select" id="html">
+		                        	editor.session.setMode('ace/mode/html');
+		                            toggleSwitchView();
+								" class="lang-select" id="html">
 		                        <label for="html" class="lang-btn" id="html" style="font-family: Lato;">
 		                            <p>
 		                                Html
@@ -156,8 +160,8 @@ include_once("process.php");
 		                    <input type="checkbox" name="css" onclick="
 		                    	var editor = ace.edit('editor');editor.setTheme('ace/theme/kr_theme');
 		                            editor.session.setMode('ace/mode/css');
-								"
-								class="lang-select" id="css">
+		                            toggleSwitchView();
+								" class="lang-select" id="css">
 		                        <label for="css" class="lang-btn" id="css" style="font-family: Lato;">
 		                            <p>
 		                                Css
@@ -169,7 +173,8 @@ include_once("process.php");
 		                    <li class="switch-li">
 		                    <input type="checkbox" name="cpp" onclick="
 		                    	var editor = ace.edit('editor');editor.setTheme('ace/theme/tomorrow_night_eighties');
-								editor.session.setMode('ace/mode/c_cpp');
+									editor.session.setMode('ace/mode/c_cpp');
+		                            toggleSwitchView();
 								" class="lang-select" id="cpp">
 		                        <label for="cpp" class="lang-btn" id="cpp" style="font-family: Lato;">
 		                            <p>
@@ -182,7 +187,8 @@ include_once("process.php");
 		                    <li class="switch-li">
 		                    <input type="checkbox" name="java" onclick="
 		                    	var editor = ace.edit('editor');editor.setTheme('ace/theme/merbivore_soft');
-								editor.session.setMode('ace/mode/java');
+									editor.session.setMode('ace/mode/java');
+		                            toggleSwitchView();
 								" class="lang-select" id="java">
 		                        <label for="java" class="lang-btn" id="java" style="font-family: Lato;">
 		                            <p>
@@ -196,6 +202,7 @@ include_once("process.php");
 		                    <input type="checkbox" name="myd" onclick="
 		                    	var editor = ace.edit('editor');editor.setTheme('ace/theme/twilight');
 								editor.session.setMode('ace/mode/sql');
+								toggleSwitchView();
 								" class="lang-select" id="myd">
 		                        <label for="myd" class="lang-btn" id="myd" style="font-family: Lato;">
 		                            <p>

@@ -62,7 +62,7 @@ li{
     position: absolute;
     left: 0;
     right: 0;
-    top: 10.01em;
+    top: 3em;
     bottom: 3.8em;
 }
 .editor-container{
@@ -161,14 +161,25 @@ li{
 .lista-dir{
 
 }
+.lang-arrow{
+    position: relative;
+    z-index: 20;
+    left: 48%;
+    margin-top: 4%;
+    transform: translate3d(0,0,0) rotate(180deg);
+    font-size: 40px;
+}
+.lang-arrow:hover{
+    opacity: 0.8;
+}
 .lang-btn{
-    display: inline-block !important;
-    height: 5em !important;
-    width: 5em !important;
-    border: 2px solid #fff;
+    display: inline-block;
+    height: 0px;
+    width: 5em;
+    border: 0px transparent;
     border-radius: 100%;
-    margin: 0.8em auto !important;
-    transition: transform 0.2s;
+    margin: 0.8em auto;
+    transition: height 0.8s, border 0.4s;
 }
 .lang-btn:hover{
     border: 2px solid #ddd;
@@ -180,14 +191,21 @@ li{
 }
 .lang-btn>p{
     color: #fff;
-    float: none !important;
+    opacity: 0;
+    float: none;/*ARREGLAR!!!!*/
     font-size: 18px;
     font-variant: small-caps;
-    height: 100% !important;
+    height: 100% ;
     margin-left: 0 !important;
-    margin-top: 35% !important;
+    margin-top: 0%;
     text-align: center;
     width: 100% !important;
+    position: relative;
+    visibility: hidden;        
+    transition: opacity 0.8s, visibility 0.8s, margin 0.8s;
+}
+.lang-form{
+    background: #272727;
 }
 .no-display{
     display: none;
@@ -197,6 +215,8 @@ li{
     z-index: 10;
     background: #411934;
     font-size: 15px;
+    right: 0;
+    top: 0;
     border: 2px solid #fff;
     color: #fff;
     padding: 0.1em 0.6em;
@@ -205,16 +225,51 @@ li{
     font-size: 14px;
     letter-spacing: 1px;    line-height: 1.5;
 }
+.show-lang-class:checked  ~ .switch-container{
+        height: 7.5em;
+    }
+
+    .show-lang-class:checked  ~ .switch-container>li{
+        position: relative;
+        z-index: 2;
+    }
+    .show-lang-class:checked  ~ .switch-container>li>label{/*lang-btn*/
+        border: 2px solid #fff;
+        height: 80px;
+    }
+    .show-lang-class:checked  ~ .switch-container>li>label>p{/*lang-btn>p*/
+        opacity: 1;
+        margin-top: 35%;
+        visibility: visible;
+    }
+    .show-lang-class:checked ~ .lang-arrow{
+        transform: translate3d(0, 85px, 0) rotate(360deg);
+    }
+    .show-lang-class:checked ~ #editor{
+    top: 0;
+    }
+    .switch-container{
+        transition: height 0.8s;
+    }
+    .switch-container>li>label{
+    }
+    .lang-arrow{
+        transition: transform 0.8s;
+}
 .switch-container>li{
     float: none !important;
-    display: inline-block !important;
+    display: inline-block;
+    position: relative;
+    height: 0px;
     width: 12% !important;/*100% / 7 para que quepan a lo largo    display: none;
 }*/
 }
 .switch-container{
-    height: 7.5em;
+    z-index: 5;
+    height: 0em;
     margin: auto;
     display: block;
+    border: 3px solid #444;
     background: #272727;
     text-align: center;
     position: absolute;

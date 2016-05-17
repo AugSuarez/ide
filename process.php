@@ -23,9 +23,9 @@
 
     function createFile($nombre) {//called from create.php
         $newdoctext = file_get_contents('lib/txt/newdoctext.txt', "r");
-        if (empty($_GET['contents-to-write'])) {
+/*        if (empty($_GET['contents-to-write'])) {
 
-        }
+        }*/
         file_put_contents( $nombre, $nombre . "\n" . $newdoctext);
         echo '<script>  alert("Archivo: '. $nombre . ' creado")  </script>' .
         '<script> window.opener.location.href  = "index.php?full-name='. $nombre . '&OPEN=Submit" </script>' .
@@ -35,8 +35,10 @@
         mkdir($nombreDir);
     }
     function getFullPath(){//for loadFile()
-        //$full_name = realpath($GLOBALS['full_name']);
-    	$full_name = realpath($_GET['full-name']);
+        $full_name="";
+        if (!empty($_GET['full-name'])) {
+            $full_name = realpath($_GET['full-name']);
+        }
         return $full_name;
     }
 	function loadFile(){
@@ -63,7 +65,7 @@
         showContents();
         echo '<script> window.location.href="index.php" </script>';
     }
-    if (!empty($_GET["submit-check"])) {
+    if (!empty($_GET["submit-check"])) {//check if file already exists, if not, call createFile()
         $nombreArchivo = $_GET["nombre-archivo"];
         $extension = $_GET["extension"];
         if($extension == "Nueva Carpeta"){
@@ -72,7 +74,7 @@
         else{
             $nombreDocNuevo = $nombreArchivo . "." . $extension;
         }
-        if (file_exists('C:\xampp\htdocs\ide\\' . $nombreDocNuevo)) {
+        if (file_exists(rtrim(realpath('index.php'), 'index.php') . $nombreDocNuevo)) {
             echo '<script> alert("'. $nombreDocNuevo .' ya existe en el directorio indicado!") </script>';
             return;
         }
@@ -88,3 +90,4 @@
     if (!empty($_GET["SAVE"])) {//called from index.php
         saveFile();
     }
+    
