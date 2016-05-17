@@ -22,7 +22,7 @@ include_once("process.php");
 <div class="content">
 <header>
 	<nav>
-		<form method="get" name="formName" onsubmit="return confirm('desea sobreescribir?')">
+		<form method="get" name="formName" onsubmit="return confirmSave()">
 			<ul class="ul-default file-oper-list">
 
 				<li class="btn-docs"><a href="index.php"><i class="icons8-left-round round file-oper"></i></a></li>
@@ -72,12 +72,18 @@ include_once("process.php");
 								</a>
 							</li>
 							<li class="li-borrar docs-delete">
-								<a class="a-izq" href="#">
 								<p class="hidden-tip-4">Borrar Archivo En Uso??</p>
-									<i class="material-icons file-delete">
-										delete
-									</i>
-								</a>
+								<form action="" method="get" name="form-delete" onsubmit="return confirmDelete()">
+									<a class="a-izq" href="#">
+										<input type="submit" id="submit-delete" class="no-display">
+											<label for="submit-delete">
+												<i class="material-icons file-delete">
+													delete
+												</i>
+											</label>
+										</input>
+									</a>
+								</form>
 							</li>
 					</ul>
 				</nav>
@@ -205,12 +211,16 @@ include_once("process.php");
 	        <pre id="editor"><?php  
 	        if (!empty($_GET["OPEN"])) {
 				$full_name = $_GET['full-name'];
-	        	echo loadFile(); 
+	        	echo htmlspecialchars(loadFile());
 	        }?></pre>
 	        <?php 
 	        if (loadFile()!=file_get_contents('lib/txt/defaulttext.txt', "r")) {
-	        	echo '<p type="text" id="open-file-name" name="open-file-name">' . $_GET['full-name'] .'</p>';
-	        	//echo '<script> alert("Archivo \'' . $_GET['full-name'] . '\' abierto con exito") </script>';
+	        	if (!empty($_GET["full-name"])) {
+	        		echo '<p id="open-file-name" name="open-file-name">' . $_GET['full-name'] .'</p>';
+	        	}
+	        	else{
+	        	echo '<p id="open-file-name" name="open-file-name">' . "..." .'</p>';
+	        	}
 	        }
 	   			
 	   		 ?>

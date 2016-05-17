@@ -126,12 +126,14 @@ li{
     font-size: 50px;
     transition: left 1s, opacity 0.4s;
     cursor: pointer;
-    z-index: 10;
+    z-index: -10;
     padding: 1em;
     border-radius: 0.5em;
     background: rgba(80,20,20,0.5);
+    transition: z-index 1s;
     }
     .docs-open:hover .hidden-tip-1, .docs-create:hover .hidden-tip-2, .docs-save:hover .hidden-tip-3, .docs-delete:hover .hidden-tip-4{
+        z-index:10;
         left: 17%;
         opacity: 1;
         transition: left 0.3s, opacity 1.4s;

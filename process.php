@@ -6,47 +6,56 @@
 <script src="lib/js/editor.js" type="text/javascript"></script>
 <?php
 
-    function showContents(){
-    }
-
+//make field with name dynamic, and make it so that if its empty or has an invalid extension
+//set ace mode at create, load and save file
     function saveFile(){//called from index.php
         $contents=$_GET['contents-to-write'];
         $nombreDocNuevo=$_GET['current-file'];
+        if (!file_exists($nombreDocNuevo)) {
+            echo '<script>  alert("No se puede guardar un documento sin nombre")  </script>' .  
+            '<script>  window.location.href  = "index.php"  </script>' ;
+            return;
+        }
         file_put_contents($nombreDocNuevo, $contents);
         echo '<script>  alert("Archivo ' . $nombreDocNuevo . ' guardado")  </script>';   
         echo '<script>  window.location.href  = "index.php?full-name='. $nombreDocNuevo . '&OPEN=Submit"  </script>';   
     }
-    function checkAvailable(){
-        
-    }
+
     function createFile($nombre) {//called from create.php
         $newdoctext = file_get_contents('lib/txt/newdoctext.txt', "r");
+        if (empty($_GET['contents-to-write'])) {
+
+        }
         file_put_contents( $nombre, $nombre . "\n" . $newdoctext);
         echo '<script>  alert("Archivo: '. $nombre . ' creado")  </script>' .
-        '<script> window.opener.location.reload() </script>' .
+        '<script> window.opener.location.href  = "index.php?full-name='. $nombre . '&OPEN=Submit" </script>' .
         '<script>  closeWin();  </script>';
     }
     function createDirectory($nombreDir){
         mkdir($nombreDir);
     }
     function getFullPath(){//for loadFile()
-    	$full_name = realpath($GLOBALS['full_name']);
+        //$full_name = realpath($GLOBALS['full_name']);
+    	$full_name = realpath($_GET['full-name']);
         return $full_name;
     }
 	function loadFile(){
 		$input_file=getFullPath();
-    	if(is_file($input_file))
+        if (file_exists($input_file) && is_file($input_file)){
     		$output_file=file_get_contents($input_file, "r");
-    	else
-    		echo "/*ARCHIVO NO VALIDO: */";
-    	if (!file_exists($input_file)){
-            echo "el archivo deseado no existe";
-    	}
+            if (!file_get_contents($input_file)){
+                file_put_contents($input_file, "\n");
+                $output_file=$input_file;
+            }
+        }
 
-		if (!file_get_contents($input_file)){
-	    	echo "//ARCHIVO NO SE PUDO ABRIR! Se cargo el contenido predeterminado\n";
-		  $output_file=file_get_contents('lib/txt/defaulttext.txt', "r");
-		}
+    	else if (!file_exists($input_file)){
+            echo "/*ARCHIVO NO VALIDO: el archivo deseado no existe, Se cargo el contenido predeterminado*/\n";
+            $output_file=file_get_contents('lib/txt/defaulttext.txt', "r");
+        }
+        else
+            $output_file=file_get_contents('lib/txt/defaulttext.txt', "r");
+
         return $output_file;
 	}
 

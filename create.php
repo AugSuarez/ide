@@ -35,6 +35,8 @@
             <li class="li-default">    
                 <input type="submit" name="submit-check">
             </li>
+            <textarea type="text" name="contents-to-write-createphp" id="contents-to-write-createphp" class="no-display">
+            </textarea>
         </ul>           
     </form>
     <?php 
