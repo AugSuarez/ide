@@ -15,7 +15,7 @@ make editor bigger on smaller screens
   src: local('Lato Regular'), local('Lato-Regular'), url('/ide/fonts/UyBMtLsHKBKXelqf4x7VRQ.woff2') format('woff2');
   unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
 }
-/* latin */
+/*latin*/
 @font-face {
   font-family: 'Lato';
   font-style: normal;
@@ -23,9 +23,14 @@ make editor bigger on smaller screens
   src: local('Lato Regular'), local('Lato-Regular'), url('/ide/fonts/1YwB1sO8YE1Lyjf12WNiUA.woff2') format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
 }
+@font-face {
+  font-family: 'Pier';
+  src: local('Pier Regular'), local('Pier-Regular'), url('/ide/fonts/pier-regular-webfont.woff2') format('woff2');
+}
 /* fin de font-face para botones de seleccion de lenguaje de programacion .lang-select */
 body{
     font-family: 'Lato';
+    font-family: 'Pier';
 }
 body {
     background: #2C001E;
@@ -113,11 +118,11 @@ li{
 }
 .hidden-tip-1, .hidden-tip-2, .hidden-tip-3, .hidden-tip-4{
     position: absolute;
-    left: 50%;
+    right: 60%;
     top: 12px;
     opacity: 0;
     color: #fff;
-    transition: left 1s, opacity 0.4s;
+    transition: right 1s, opacity 0.4s;
     cursor: pointer;
     }
     .hidden-tip-4{
@@ -134,7 +139,7 @@ li{
     }
     .docs-open:hover .hidden-tip-1, .docs-create:hover .hidden-tip-2, .docs-save:hover .hidden-tip-3, .docs-delete:hover .hidden-tip-4{
         z-index:10;
-        left: 17%;
+        right: 27%;
         opacity: 1;
         transition: left 0.3s, opacity 1.4s;
     }
@@ -315,7 +320,7 @@ li{
 #css{
     background: #D06200;
 }
-#cpp{
+#txt{
     background: #0A79CA;
 }
 #java{

@@ -5,7 +5,9 @@
 }
 header{
 	background-color: #2C001E;
+	/*background-color: #050505;*/
 	border-bottom: 2px solid #DD4818;
+	border-bottom: 2px solid #411934;
 	
 }
 i{
@@ -59,6 +61,7 @@ nav{
 	background-color: transparent;
 	border-right: 2px solid #DD4818;
 	background: #2C001E;
+	/* background: #050505; */
 	height: 94%;
 }
 .exp{
@@ -122,6 +125,7 @@ nav{
 .menu-explorador{
 	float: left;
 	background-color: #411934;
+	/*background-color: #272727;*/
 }
 .nav-barra-izq{
 	width:100%;

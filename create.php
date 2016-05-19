@@ -25,11 +25,10 @@
                     <option id="php">php</option>
                     <option id="html">html</option>
                     <option id="css">css</option>
-                    <option id="cpp">cpp</option>
-                    <option id="java">java</option>
+                    <option id="txt">txt</option>
+                    <!-- <option id="java">java</option> -->
                     <option id="myd">myd</option>
                     <option id="carpeta">Nueva Carpeta</option>
-                    <option id="txt">txt</option>
                 </select>
             </li>
             <li class="li-default">    

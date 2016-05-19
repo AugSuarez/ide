@@ -83,6 +83,7 @@ include_once("process.php");
 											</label>
 										</input>
 									</a>
+								<textarea type="text" name="file-to-delete" class="no-display" id="file-to-delete"></textarea>
 								</form>
 							</li>
 					</ul>
@@ -171,36 +172,36 @@ include_once("process.php");
 		                    </li>
 
 		                    <li class="switch-li">
-		                    <input type="checkbox" name="cpp" onclick="
-		                    	var editor = ace.edit('editor');editor.setTheme('ace/theme/tomorrow_night_eighties');
-									editor.session.setMode('ace/mode/c_cpp');
+		                    <input type="checkbox" name="txt" onclick="
+		                    	var editor = ace.edit('editor');editor.setTheme('ace/theme/twilight');
+									editor.session.setMode('ace/mode/text');
 		                            toggleSwitchView();
-								" class="lang-select" id="cpp">
-		                        <label for="cpp" class="lang-btn" id="cpp" style="font-family: Lato;">
+								" class="lang-select" id="txt">
+		                        <label for="txt" class="lang-btn" id="txt" style="font-family: Lato;">
 		                            <p>
-		                                C++
+		                               Txt
 		                            </p>
 		                        </label>
 		                    </input>
 		                    </li>
 
-		                    <li class="switch-li">
+		                    <!-- <li class="switch-li">
 		                    <input type="checkbox" name="java" onclick="
 		                    	var editor = ace.edit('editor');editor.setTheme('ace/theme/merbivore_soft');
-									editor.session.setMode('ace/mode/java');
+		                    									editor.session.setMode('ace/mode/java');
 		                            toggleSwitchView();
-								" class="lang-select" id="java">
+		                    								" class="lang-select" id="java">
 		                        <label for="java" class="lang-btn" id="java" style="font-family: Lato;">
 		                            <p>
 		                                Java
 		                            </p>
 		                        </label>
 		                    </input>
-		                    </li>
+		                    </li> -->
 
 		                    <li class="switch-li">
 		                    <input type="checkbox" name="myd" onclick="
-		                    	var editor = ace.edit('editor');editor.setTheme('ace/theme/twilight');
+		                    	var editor = ace.edit('editor');editor.setTheme('ace/theme/tomorrow_night_eighties');
 								editor.session.setMode('ace/mode/sql');
 								toggleSwitchView();
 								" class="lang-select" id="myd">
